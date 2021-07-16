@@ -1,46 +1,44 @@
 {
-	"name": "Kubernetes - Minikube-in-docker",
-	"dockerFile": "Dockerfile",
-	"runArgs": [
-		"--init",
-		"--privileged"
-	],
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		// "terminal.integrated.shell.linux": "/bin/bash",
-		"terminal.integrated.shell.linux": "/usr/bin/zsh"
-	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"vadimcn.vscode-lldb",
-		"mutantdino.resourcemonitor",
-		"formulahendry.code-runner",
-		"asciidoctor.asciidoctor-vscode",
-		"donjayamanne.githistory",
-		"mhutchie.git-graph",
-		"alefragnani.bookmarks",
-		"github.vscode-pull-request-github",
-		"eamodio.gitlens",
-		"hoovercj.vscode-power-mode",
-		"ms-azuretools.vscode-docker",
-		"ms-kubernetes-tools.vscode-kubernetes-tools"
-	],
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
-	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
-	// the .gnupg folder is hard coded to the vscode user ...
-	"mounts": [
-		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
-		"source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached",
-		"source=minikube-var-lib-docker,target=/var/lib/docker,type=volume",
-		"source=minikube-config,target=/home/vscode/.minikube,type=volume",
-		// "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
-	],
-	"overrideCommand": false,
-	// Uncomment the next line to run commands after the container is created - for example installing curl.
-	// "postCreateCommand": "apt-get update && apt-get install -y curl",
-	"postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
+  "name": "Markdown Editing",
+  "dockerFile": "Dockerfile",
+  "runArgs": [],
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    // "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.linux": "/usr/bin/zsh"
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "vadimcn.vscode-lldb",
+    "mutantdino.resourcemonitor",
+    "formulahendry.code-runner",
+    "asciidoctor.asciidoctor-vscode",
+    "donjayamanne.githistory",
+    "mhutchie.git-graph",
+    "alefragnani.bookmarks",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "hoovercj.vscode-power-mode",
+    //
+    "yzhang.markdown-all-in-one",
+    "streetsidesoftware.code-spell-checker",
+    "DavidAnson.vscode-markdownlint",
+    "shd101wyy.markdown-preview-enhanced",
+    "bierner.github-markdown-preview"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+  // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+  // the .gnupg folder is hard coded to the vscode user ...
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached"
+    // "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
+  ],
+  "overrideCommand": false,
+  // Uncomment the next line to run commands after the container is created - for example installing curl.
+  // "postCreateCommand": "apt-get update && apt-get install -y curl",
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode"
 }

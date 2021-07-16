@@ -1,4 +1,4 @@
-# Go
+# Markdown
 
 This is intended to be used as a git sub-module. 
 
@@ -12,7 +12,7 @@ Then clone and update the .devcontainer submodule.
 
 ```bash
 cd {root project}
-git submodule add https://github.com/waltiam/submodule-golang.git .devcontainer
+git submodule add https://github.com/waltiam/submodule-markdown.git .devcontainer
 git submodule init
 git submodule update
 ```
