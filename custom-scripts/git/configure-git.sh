@@ -1,8 +1,8 @@
 #! /bin/bash
 
-mkdir t
-cd t
+tdir=$(mktemp --directory)
+pushd $tdir
 git init
-sudo git config --global core.editor "nvim"
-cd ..
-
+git config --global core.editor "nvim"
+popd
+rm -rf $tdir

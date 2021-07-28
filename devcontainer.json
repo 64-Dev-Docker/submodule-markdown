@@ -3,11 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      // Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.15
       "VARIANT": "16",
-      // Options
-      // "INSTALL_NODE": "true",
-      // "NODE_VERSION": "lts/*"
     }
   },
   "runArgs": [],
@@ -33,7 +29,8 @@
     "streetsidesoftware.code-spell-checker",
     "DavidAnson.vscode-markdownlint",
     "shd101wyy.markdown-preview-enhanced",
-    "bierner.github-markdown-preview"
+    "bierner.github-markdown-preview",
+    "ritwickdey.liveserver"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -43,7 +40,6 @@
   "mounts": [
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached"
-    // "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
   ],
   // "overrideCommand": false,
   // Uncomment the next line to run commands after the container is created - for example installing curl.
