@@ -12,5 +12,4 @@ git config --global commit.gpgSign true
 git config --global tag.gpgSign true
 
 # gah - silly terminal
-export GPG_TTY=$(tty)
 gpgconf --kill gpg-agent

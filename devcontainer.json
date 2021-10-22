@@ -1,12 +1,23 @@
 {
-  "name": "AZ-204",
+  "name": "Markdown",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "buster",
+      // "VARIANT": "buster",
+      // Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.15
+      "VARIANT": "latest",
+      // Options
+      "INSTALL_NODE": "true",
+      "NODE_VERSION": "lts/*"
     }
   },
-  "runArgs": [],
+  "runArgs": [
+    "--init",
+    "--privileged"
+		"--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
   // Set *default* container specific settings.json values on container create.
   "settings": {
     // "terminal.integrated.shell.linux": "/bin/bash",
@@ -33,6 +44,8 @@
     "ritwickdey.liveserver",
     // azure
     "ms-vscode-azurecli"
+    // docker
+    "ms-azuretools.vscode-docker"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -41,9 +54,10 @@
   // the .gnupg folder is hard coded to the vscode user ...
   "mounts": [
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached",
+    "source=dind-var-lib-docker,target=/var/lib/docker,type=volume",
   ],
-  // "overrideCommand": false,
+  "overrideCommand": false,
   // Uncomment the next line to run commands after the container is created - for example installing curl.
   // "postCreateCommand": "apt-get update && apt-get install -y curl",
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
