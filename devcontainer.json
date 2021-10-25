@@ -35,6 +35,7 @@
     "github.vscode-pull-request-github",
     "eamodio.gitlens",
     "hoovercj.vscode-power-mode",
+    "vtrois.gitmoji-vscode",
     //
     "yzhang.markdown-all-in-one",
     "streetsidesoftware.code-spell-checker",
@@ -43,7 +44,7 @@
     "bierner.github-markdown-preview",
     "ritwickdey.liveserver",
     // azure
-    "ms-vscode-azurecli"
+    "ms-vscode.azurecli",
     // docker
     "ms-azuretools.vscode-docker"
   ],
@@ -53,8 +54,8 @@
   // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
   // the .gnupg folder is hard coded to the vscode user ...
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached",
     "source=dind-var-lib-docker,target=/var/lib/docker,type=volume",
   ],
   "overrideCommand": false,
